@@ -29,7 +29,6 @@
             pkgs.coreutils
           ];
           system.keyboard.enableKeyMapping = true;
-          fonts.fonts = [ pkgs.nerdfonts ];
           services.nix-daemon.enable = true;
           system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
           system.defaults.finder.AppleShowAllExtensions = true;
@@ -45,16 +44,17 @@
             users.bram.imports = [
               ({pkgs, ... }:
                 {
+                  fonts.fontconfig.enable = true;
                   home.stateVersion = "23.05";
                   home.packages = [
+                    pkgs.nerdfonts
                     pkgs.ripgrep
                     pkgs.fd
                     pkgs.curl
                   ];
                   programs.alacritty = {
                     enable = true;
-                    settings.font.normal.family = "JetBrains Nerd Font Mono";
-                    settings.font.size = 16;
+                    settings.font.normal.family = "JetBrainsMono Nerd Font";
                   };
                   programs.exa.enable = true;
                   programs.git.enable = true;
