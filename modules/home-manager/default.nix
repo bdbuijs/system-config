@@ -13,7 +13,11 @@
       settings.font.normal.family = "JetBrainsMono Nerd Font";
     };
     exa.enable = true;
-    git.enable = true;
+    git = {
+      enable = true;
+      userName = "Bram Buijs";
+      userEmail = "bdbuijs@gmail.com";
+    };
     starship.enable = true;
     starship.enableZshIntegration = true;
     zsh = {
@@ -23,6 +27,8 @@
       syntaxHighlighting.enable = true;
       shellAliases = {
         ls = "ls --color=auto -F";
+        nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
+        nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd;";
       };
     };
   };
