@@ -1,11 +1,14 @@
-{pkgs, ... }: {
+{ pkgs, ... }: {
   fonts.fontconfig.enable = true;
   home.stateVersion = "23.05";
-  home.packages = [
-    pkgs.nerdfonts
-    pkgs.ripgrep
-    pkgs.fd
-    pkgs.curl
+  home.packages = with pkgs; [
+    nerdfonts
+    ripgrep
+    fd
+    curl
+    cargo
+    rustc
+    rustfmt
   ];
   programs = {
     alacritty = {
