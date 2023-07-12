@@ -1,0 +1,34 @@
+nix setup:
+
+1. execute command from nix website to install nix, multi-user
+
+2. open new terminal and paste suggested command
+
+3. create system config directory and flake files:
+	mkdir -p src/system-config
+	cd src/system-config
+	touch flake.nix
+
+4. edit the file (nano/nvim etc) (or get from git next time)
+
+5. bootstrap nix-darwin: (potentially replace system name, make sure still in system-config dir!)
+	nix-shell -p git
+	git init
+	git add .
+	nix --extra-experimental-features "nix-command flakes" build .#darwinConfigurations.Brams-MBP.system
+	./result/sw/bin/darwin-rebuild switch --flake ~/src/system-config
+	# follow suggestions when it fails
+	# run again, it will fail, so run:
+	sudo rm /etc/nix/nix.conf /etc/shells
+	# run it again
+	# after restarting shell, can now rebuild with:
+	darwin-rebuild switch --flake ~/src/system-config/.#
+
+6. install homebrew
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+7. rebuild again
+
+
+todo:
+- install neovim with plugins

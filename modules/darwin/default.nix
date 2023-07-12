@@ -1,21 +1,20 @@
-{ pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./brew.nix
     ./system.nix
   ];
-  
+
   nix.extraOptions = ''
     experimental-features = nix-command flakes
   '';
   programs.zsh.enable = true;
   environment = {
-    shells = [ pkgs.zsh];
+    shells = [ pkgs.zsh ];
     loginShell = pkgs.zsh;
     pathsToLink = [ "/Applications" ];
     systemPath = [ "/opt/homebrew/bin" ];
     systemPackages = with pkgs; [
       coreutils
-      python311
       nixpkgs-fmt
     ];
   };

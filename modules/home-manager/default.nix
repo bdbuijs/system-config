@@ -2,11 +2,12 @@
   fonts.fontconfig.enable = true;
   home.stateVersion = "23.05";
   home.packages = with pkgs; [
-    nerdfonts
-    ripgrep
-    fd
     curl
     cargo
+    fd
+    nerdfonts
+    python311
+    ripgrep
     rustc
     rustfmt
   ];
