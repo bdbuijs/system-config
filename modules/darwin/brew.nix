@@ -6,6 +6,7 @@
       "1password"
       "adobe-acrobat-pro"
       "adobe-creative-cloud"
+      "amethyst"
       "audacity"
       "bluejeans"
       "brave-browser"
