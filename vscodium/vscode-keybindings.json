@@ -1,0 +1,34 @@
+[
+    {
+        "key": "ctrl+alt+cmd+i",
+        "command": "toggle",
+        "when": "editorTextFocus",
+        "args": {
+            "id": "toggle_inlay_hints",
+            "value": [
+                {
+                    "editor.inlayHints.enabled": "on"
+                },
+                {
+                    "editor.inlayHints.enabled": "off"
+                }
+            ]
+        }
+    },
+    {
+        "key": "ctrl+alt+cmd+e",
+        "command": "toggle",
+        "when": "editorTextFocus",
+        "args": {
+            "id": "toggle_error_lens",
+            "value": [
+                {
+                    "errorLens.messageEnabled": true
+                },
+                {
+                    "errorLens.messageEnabled": false
+                }
+            ]
+        }
+    }
+]

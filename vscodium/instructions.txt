@@ -1,0 +1,37 @@
+Export all your installed extensions
+	First export all of your installed extensions into a text file (amend the output path as you see fit)
+
+	codium --list-extensions | tee ~/vscode-extensions.txt
+
+	This will output all of your extensions to ~/vscode-extensions.txt and list them out in your terminal for you to see.
+	Save this file in system-config
+
+Export your settings
+	Export any custom keybindings and user settings you have as default.
+	cp ~/Library/Application\ Support/Code/User/settings.json ~/vscode-settings.json
+
+	cp ~/Library/Application\ Support/Code/User/keybindings.json ~/vscode-keybindings.json
+
+Reinstall your extensions for VSCodium
+	Because VSCodium has the same command line tools, we invoke them the same was as before
+
+	xargs -n1 code --install-extension < ~/vscode-extensions.txt
+
+	This went through the file and executed code --install-extension on each line individually.
+	You should have seen the output in your terminal.
+	If you get a DeprecationWarning: Buffer()... warning, you don't need to worry, it's related to Yarn and can be resolved with yarn global add yarn
+
+Missing extensions from OpenVSX, download .vsix from marketplace:
+	https://marketplace.visualstudio.com/items?itemName=rickynormandeau.mariana-pro
+	https://marketplace.visualstudio.com/items?itemName=CoenraadS.disableligatures
+	https://marketplace.visualstudio.com/items?itemName=DrMerfy.overtype
+
+	then for each extension:
+	code --install-extension <name>.vsix
+
+
+Import your settings
+	Go to vscodium folder in system-config and type:
+	cp ./vscode-settings.json ~/Library/Application\ Support/VSCodium/User/settings.json
+
+	cp ~/vscode-keybindings.json ~/Library/Application\ Support/VSCodium/User/keybindings.json
