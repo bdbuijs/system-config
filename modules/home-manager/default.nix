@@ -45,7 +45,7 @@
         nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
         nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd;";
         sysconfig = "codium ~/src/system-config";
-        workwork = "open -g -a Slack;open -g -a \"Microsoft Teams\"";
+        workwork = "open -g -a Slack;open -g -a \"Microsoft Teams\";open -g -a zoom.us";
         eod = "osascript -e 'quit app \"Slack\"';osascript -e 'quit app \"Microsoft Teams\"'";
       };
     };
