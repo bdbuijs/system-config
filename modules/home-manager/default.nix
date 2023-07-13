@@ -15,12 +15,23 @@
     alacritty = {
       enable = true;
       settings.font.normal.family = "JetBrainsMono Nerd Font";
+      settings.window.opacity = 0.85;
+      settings.window.padding.x = 5;
     };
     exa.enable = true;
     git = {
       enable = true;
       userName = "Bram Buijs";
       userEmail = "bdbuijs@gmail.com";
+    };
+    neovim = {
+      enable = true;
+      extraConfig = ''
+        set number relativenumber
+      '';
+      plugins = with pkgs.vimPlugins; [
+        nvim-treesitter.withAllGrammars
+      ];
     };
     starship.enable = true;
     starship.enableZshIntegration = true;
@@ -33,6 +44,9 @@
         ls = "ls --color=auto -F";
         nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
         nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd;";
+        sysconfig = "codium ~/src/system-config";
+        workwork = "open -g -a Slack;open -g -a \"Microsoft Teams\"";
+        eod = "osascript -e 'quit app \"Slack\"';osascript -e 'quit app \"Microsoft Teams\"'";
       };
     };
   };
