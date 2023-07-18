@@ -12,6 +12,7 @@
     rustfmt
   ];
   programs = {
+    home-manager.enable = true;
     alacritty = {
       enable = true;
       settings.font.normal.family = "JetBrainsMono Nerd Font";
@@ -43,7 +44,7 @@
       shellAliases = {
         ls = "ls --color=auto -F";
         nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
-        nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd;";
+        nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd; nix-collect-garbage; ";
         sysconfig = "codium ~/src/system-config";
         workwork = "open -g -a Slack;open -g -a \"Microsoft Teams\";open -g -a zoom.us";
         eod = "osascript -e 'quit app \"Slack\"';osascript -e 'quit app \"Microsoft Teams\"'";
