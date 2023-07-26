@@ -1,7 +1,7 @@
 { ... }: {
   homebrew = {
     enable = true;
-    autoUpdate = true;
+    onActivation.upgrade = true;
     global.brewfile = true;
     casks = [
       "1password"
