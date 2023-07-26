@@ -30,6 +30,7 @@
       "microsoft-office"
       "microsoft-teams"
       "musescore"
+      "neovide"
       "netiquette"
       "nordvpn"
       "oversight"
