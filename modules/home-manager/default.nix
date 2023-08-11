@@ -51,11 +51,11 @@
       shellAliases = {
         ls = "ls --color=auto -F";
         nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
-        nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd; nix-collect-garbage; ";
+        nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd; brew upgrade; nix-collect-garbage; ";
         sysconfig = "codium ~/src/system-config";
         scdir = "cd ~/src/system-config/";
         workwork = "open -g -a Slack;open -g -a \"Microsoft Teams\";open -g -a zoom.us";
-        eod = "osascript -e 'quit app \"Slack\"';osascript -e 'quit app \"Microsoft Teams\"'";
+        eod = "osascript -e 'quit app \"Slack\"';osascript -e 'quit app \"Microsoft Teams\"';'quit app \"Mail\"'";
       };
     };
   };

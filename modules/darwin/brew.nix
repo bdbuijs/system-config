@@ -1,6 +1,7 @@
 { ... }: {
   homebrew = {
     enable = true;
+    onActivation.autoUpdate = true;
     onActivation.upgrade = true;
     global.brewfile = true;
     casks = [
@@ -64,6 +65,7 @@
     masApps = {
       Notability = 360593530;
       "Remote Mouse" = 403195710;
+      "Hand Mirror" = 1502839586;
     };
   };
 }
