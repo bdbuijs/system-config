@@ -3,13 +3,11 @@
   home.stateVersion = "23.05";
   home.packages = with pkgs; [
     curl
-    cargo
     fd
     nerdfonts
     python311
     ripgrep
-    rustc
-    rustfmt
+    rustup
   ];
   programs = {
     home-manager.enable = true;
@@ -19,7 +17,7 @@
       settings.window.opacity = 0.85;
       settings.window.padding.x = 5;
     };
-    exa.enable = true;
+    eza.enable = true;
     git = {
       enable = true;
       ignores = [ ".DS_Store" ];
@@ -51,8 +49,8 @@
       shellAliases = {
         ls = "ls --color=auto -F";
         nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
-        nixup = "pushd ~/src/system-config; nix flake update; nixswitch; popd; brew upgrade -g; nix-collect-garbage; ";
-        sysconfig = "codium ~/src/system-config";
+        nixup = "pushd ~/src/system-config;nix flake update;nixswitch;popd;brew upgrade -g;nix-collect-garbage; ";
+        sysconfig = "cd ~/src/system-config;codium ~/src/system-config";
         scdir = "cd ~/src/system-config/";
         workwork = "open -g -a Mail;open -g -a Slack;open -g -a \"Microsoft Teams\";open -g -a zoom.us";
         eod = "osascript -e 'quit app \"Slack\"';osascript -e 'quit app \"Microsoft Teams\"';osascript -e 'quit app \"Mail\"';osascript -e 'quit app \"zoom.us\"'";

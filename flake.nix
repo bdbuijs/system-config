@@ -10,7 +10,7 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
   outputs = inputs: {
-    darwinConfigurations.Brams-MBP =
+    darwinConfigurations.brams-mbp =
       inputs.darwin.lib.darwinSystem {
         system = "x86_64-darwin";
         pkgs = import inputs.nixpkgs {
