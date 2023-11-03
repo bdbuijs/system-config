@@ -58,7 +58,6 @@
           brew upgrade -g
           defaults import com.apple.dock ~/dock_backup_file
           killall Dock
-          nix-collect-garbage
         '';
         sysconfig = "cd ~/src/system-config;codium ~/src/system-config";
         scdir = "cd ~/src/system-config/";
