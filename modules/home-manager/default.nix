@@ -49,7 +49,7 @@
       shellAliases = {
         ls = "ls --color=auto -F";
         nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
-        nixup = "pushd ~/src/system-config;nix flake update;nixswitch;popd;brew upgrade -g;nix-collect-garbage; ";
+        nixup = "pushd ~/src/system-config;nix flake update;nixswitch;popd;defaults export com.apple.dock ~/dock_backup_file;brew upgrade -g;defaults import com.apple.dock ~/dock_backup_file;killall Dock;nix-collect-garbage;";
         sysconfig = "cd ~/src/system-config;codium ~/src/system-config";
         scdir = "cd ~/src/system-config/";
         workwork = "open -g -a Mail;open -g -a Slack;open -g -a \"Microsoft Teams\";open -g -a zoom.us";
