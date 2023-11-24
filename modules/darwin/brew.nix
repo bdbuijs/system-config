@@ -11,7 +11,6 @@
       "adobe-creative-cloud"
       "amethyst"
       "audacity"
-      "backblaze"
       "blockblock"
       "bluejeans"
       "brave-browser"
