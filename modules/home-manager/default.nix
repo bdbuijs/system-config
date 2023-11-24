@@ -68,15 +68,15 @@
           open -g -a zoom.us
         '';
         eod = ''
-          osascript -e 'quit app Slack'
+          osascript -e 'quit app "Slack"'
           osascript -e 'quit app "Microsoft Teams (work or school)"'
-          osascript -e 'quit app Mail'
-          osascript -e 'quit app zoom.us'
+          osascript -e 'quit app "Mail"'
+          osascript -e 'quit app "zoom.us"'
         '';
         eodz = ''
-          osascript -e 'quit app Slack'
+          osascript -e 'quit app "Slack"'
           osascript -e 'quit app "Microsoft Teams (work or school)"'
-          osascript -e 'quit app Mail'
+          osascript -e 'quit app "Mail"'
         '';
       };
     };

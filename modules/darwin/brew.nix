@@ -6,10 +6,12 @@
     global.brewfile = true;
     casks = [
       "1password"
+      "1password-cli"
       "adobe-acrobat-pro"
       "adobe-creative-cloud"
       "amethyst"
       "audacity"
+      "backblaze"
       "blockblock"
       "bluejeans"
       "brave-browser"
