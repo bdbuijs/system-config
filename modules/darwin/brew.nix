@@ -20,6 +20,7 @@
       "dropbox"
       "firefox"
       "google-chrome"
+      "gh"
       "hiddenbar"
       "inkscape"
       "kextviewr"
