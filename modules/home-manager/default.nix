@@ -50,11 +50,12 @@
         ls = "ls --color=auto -F";
         nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
         nixup = ''
+          defaults export com.apple.dock ~/dock_backup_file
           pushd ~/src/system-config
           nix flake update
           nixswitch
           popd
-          defaults export com.apple.dock ~/dock_backup_file
+          brew update
           brew upgrade -g
           defaults import com.apple.dock ~/dock_backup_file
           killall Dock
