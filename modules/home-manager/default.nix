@@ -8,6 +8,7 @@
     python311
     ripgrep
     rustup
+    go
   ];
   programs = {
     home-manager.enable = true;
@@ -44,21 +45,17 @@
     zsh = {
       enable = true;
       enableCompletion = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
         ls = "ls --color=auto -F";
         nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
         nixup = ''
-          defaults export com.apple.dock ~/dock_backup_file
           pushd ~/src/system-config
           nix flake update
           nixswitch
           popd
-          brew update
-          brew upgrade -g
-          defaults import com.apple.dock ~/dock_backup_file
-          killall Dock
+          brew cu
         '';
         sysconfig = "cd ~/src/system-config;codium ~/src/system-config";
         scdir = "cd ~/src/system-config/";
