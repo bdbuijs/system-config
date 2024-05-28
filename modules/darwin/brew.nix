@@ -4,6 +4,11 @@
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
     global.brewfile = true;
+    brews = [
+      "python@3.10"
+      "python@3.11"
+      "python@3.12"
+    ];
     casks = [
       "1password"
       "1password-cli"
@@ -41,9 +46,6 @@
       "paragon-ntfs"
       "postman"
       "pycharm-ce"
-      "python@3.10"
-      "python@3.11"
-      "python@3.12"
       "qlab"
       "ransomwhere"
       "reflector"
