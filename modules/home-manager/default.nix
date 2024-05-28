@@ -4,10 +4,10 @@
   home.packages = with pkgs; [
     curl
     fd
+    go
     nerdfonts
     ripgrep
     rustup
-    go
   ];
   programs = {
     home-manager.enable = true;
