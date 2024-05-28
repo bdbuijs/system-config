@@ -5,8 +5,6 @@
     curl
     fd
     nerdfonts
-    python311
-    python312
     ripgrep
     rustup
     go
