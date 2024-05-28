@@ -5,6 +5,7 @@
     onActivation.upgrade = true;
     global.brewfile = true;
     brews = [
+      "gh"
       "python@3.10"
       "python@3.11"
       "python@3.12"
@@ -25,7 +26,6 @@
       "dropbox"
       "firefox"
       "google-chrome"
-      "gh"
       "hiddenbar"
       "inkscape"
       "kextviewr"
