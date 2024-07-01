@@ -12,7 +12,7 @@
     shells = [ pkgs.zsh ];
     loginShell = pkgs.zsh;
     pathsToLink = [ "/Applications" ];
-    systemPath = [ "/opt/homebrew/bin" ];
+    systemPath = [ "/opt/homebrew/bin" "~/src/tools" ];
     systemPackages = with pkgs; [
       coreutils
       nixpkgs-fmt
