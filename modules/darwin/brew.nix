@@ -17,6 +17,7 @@
       "adobe-creative-cloud"
       "amethyst"
       "audacity"
+      # "backblaze" (manually installed)
       "blockblock"
       "bluejeans"
       "brave-browser"
@@ -67,6 +68,8 @@
       "voov-meeting"
       "vscodium"
       "whatsapp"
+      "yubico-authenticator"
+      "yubico-yubikey-manager"
       "zoom"
     ];
     masApps = {
