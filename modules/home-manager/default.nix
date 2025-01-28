@@ -5,7 +5,6 @@
     curl
     fd
     go
-    nerdfonts
     ripgrep
     rustup
   ];
@@ -22,7 +21,7 @@
       enable = true;
       ignores = [ ".DS_Store" ];
       userName = "Bram Buijs";
-      userEmail = "bdbuijs@gmail.com";
+      userEmail = "bram.buijs@hurricanecommerce.com";
     };
     neovim = {
       enable = true;

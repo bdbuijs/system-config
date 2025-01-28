@@ -1,6 +1,7 @@
-{...}: {
+{ ... }: {
   system = {
-    activationScripts.postUserActivation.text = ''
+    stateVersion = 1;
+    activationScripts.postUserActivation.text = '';
     # Should remove the need to login again to apply settings
     /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
@@ -89,7 +90,7 @@
       dock.showhidden = true;
       finder.AppleShowAllExtensions = true;
       finder.ShowPathbar = true;
-      finder.ShowStatusBar = true; 
+      finder.ShowStatusBar = true;
       finder._FXShowPosixPathInTitle = true;
       loginwindow.PowerOffDisabledWhileLoggedIn = true;
       loginwindow.RestartDisabledWhileLoggedIn = true;
@@ -97,4 +98,5 @@
       screensaver.askForPasswordDelay = 7;
       trackpad.TrackpadThreeFingerDrag = true;
     };
-  };}
+  };
+}

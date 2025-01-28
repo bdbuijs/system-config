@@ -26,6 +26,7 @@
       "discord"
       "dropbox"
       "firefox"
+      "font-hack-nerd-font"
       "google-chrome"
       "hiddenbar"
       "inkscape"
