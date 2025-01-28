@@ -1,9 +1,9 @@
 { ... }: {
   system = {
     stateVersion = 1;
-    activationScripts.postUserActivation.text = '';
-    # Should remove the need to login again to apply settings
-    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    activationScripts.postUserActivation.text = ''
+      # Should remove the need to login again to apply settings
+      /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
     keyboard.enableKeyMapping = true;
     defaults = {
