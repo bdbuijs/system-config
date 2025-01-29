@@ -22,11 +22,15 @@
       ignores = [ ".DS_Store" ];
       userName = "Bram Buijs";
       userEmail = "bram.buijs@hurricanecommerce.com";
+      extraConfig = {
+        core.editor = "vim";
+      };
     };
     neovim = {
       enable = true;
       extraConfig = ''
         set number relativenumber
+        set scrolloff 10
       '';
       plugins = with pkgs.vimPlugins; [
         nvim-treesitter.withAllGrammars
