@@ -52,6 +52,7 @@
       "ransomwhere"
       "reflector"
       "reikey"
+      "rustdesk"
       "secretive"
       "skype"
       "slack"

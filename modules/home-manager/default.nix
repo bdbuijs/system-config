@@ -30,7 +30,7 @@
       enable = true;
       extraConfig = ''
         set number relativenumber
-        set scrolloff 10
+        set scrolloff=8
       '';
       plugins = with pkgs.vimPlugins; [
         nvim-treesitter.withAllGrammars
