@@ -32,7 +32,6 @@
       "inkscape"
       "kextviewr"
       "knockknock"
-      "krisp"
       "libreoffice"
       "libreoffice-language-pack"
       "lulu"
