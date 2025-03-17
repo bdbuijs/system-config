@@ -78,8 +78,9 @@
           osascript -e 'quit app "Microsoft Teams"'
           osascript -e 'quit app "Mail"'
         '';
+        mailz = ''/Users/bram/src/Python/PycharmProjects/emailAddressProcessor/.venv/bin/python /Users/bram/src/Python/PycharmProjects/emailAddressProcessor/main.py''
+          };
       };
     };
-  };
-}
+  }
               
