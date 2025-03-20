@@ -17,7 +17,6 @@
       nixpkgs-fmt
     ];
   };
-  security.pam.enableSudoTouchIdAuth = true;
-  services.nix-daemon.enable = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
   users.users.bram.home = "/Users/bram";
 }
