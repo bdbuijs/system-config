@@ -1,0 +1,144 @@
+" Keep cursor this far away from the edge when scrolling
+set scrolloff=8
+" Show line numbers
+set number
+" Show relative line numbers (and regular one on current line)
+set relativenumber
+" Use 4 instead of 8 spaces
+set tabstop=4 softtabstop=4 shiftwidth=4
+" Use spaces for files instead of tabs
+set expandtab
+" Show tabs as arrows and end of line as $ (to see trailing whitespace)
+set list listchars=tab:├─➜,trail:-,extends:→,precedes:←,nbsp:+
+" Better indentation, has been superceded by other stuff, research later
+set smartindent
+" Highlight search results during search
+set hls ic
+" Automatically make backup files
+set backup
+" Keep undo history across sessions
+set undofile
+set undodir=~/.vim/undodir
+if !isdirectory(&undodir)
+    call mkdir(&undodir, "p", 0700)
+endif
+" Highlight the row the cursor is on
+set cursorline
+
+" The following adapted from Tim Pope's sensible defaults
+
+" I never use octal numbers
+set nrformats-=octal
+" More real-time responsive searching
+set incsearch
+" Show status bar for every window (could consider setting to 3 for global
+" status bar as well)
+set laststatus=2
+" Show the current cursor position (line,character and percentage in file)
+set ruler
+" Show tab completion options as menu (switch with C-P and C-N)
+" Could also consider adding 'pum' to wildoptions to turn it to a popup
+set wildmenu
+" Scroll sideways by 1 character (only when wrap is off)
+set sidescroll=1
+" Keep characters in view when sidescrolling
+set sidescrolloff=4
+" Show the last part of the file when it would otherwise be out of view
+" Show the end of a line when it is too long
+set display+=lastline
+set display+=truncate
+" Do not include comment leader on the line after a trailing comment
+set formatoptions+=/
+" Remove comment leaders when auto-joining lines
+set formatoptions+=j
+" Replace the check for a tags file in the parent directory of the current
+" file with a check in every ancestor directory.
+if has('path_extra') && (',' . &g:tags . ',') =~# ',\./tags,'
+  setglobal tags-=./tags tags-=./tags; tags^=./tags;
+endif
+" If buffer contains no changes, but file has changed on disk, load again
+set autoread
+" Remember longer command history
+set history=1000
+" Persist g:UPPERCASE variables, used by some plugins, in .viminfo
+if !empty(&viminfo)
+  set viminfo^=!
+endif
+" Saving options in session and view files causes more problems than it
+" solves, so disable it.
+set sessionoptions-=options
+set viewoptions-=options
+" Make C-U/C-W deletions in Insert mode create their own undo step
+inoremap <C-U> <C-G>u<C-U>
+inoremap <C-W> <C-G>u<C-W>
+" Define :DiffOrig command to diff the current buffer against its saved version on disk
+if exists(":DiffOrig") != 2
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_
+        \ | diffthis | wincmd p | diffthis
+endif
+" Correctly highlight $() and other modern affordances in filetype=sh.
+if !exists('g:is_posix') && !exists('g:is_bash') && !exists('g:is_kornshell') && !exists('g:is_dash')
+  let g:is_posix = 1
+endif
+" Load matchit.vim, but only if the user hasn't installed a newer version.
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
+" Enable the :Man command shipped inside Vim's man filetype plugin.
+if exists(':Man') != 2 && !exists('g:loaded_man') && &filetype !=? 'man' && !has('nvim')
+  runtime ftplugin/man.vim
+endif
+
+
+
+" Plug! for plugin management
+call plug#begin('~/.vim/plugged')
+" Install fzf (fuzzy find plugin) (first install plugin, then .vim wrapper)
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" Theme that makes vim use 16 ANSI colors to match the terminal theme
+" but uses 'dimmed' colors for line numbers and such
+Plug 'jeffkreeftmeijer/vim-dim'
+Plug 'chriskempson/base16-vim'
+Plug 'bdbuijs/neodim'
+" Toggle comments with gc and gcc
+Plug 'tpope/vim-commentary'
+call plug#end()
+
+set termguicolors
+colorscheme base16-tomorrow-night
+
+" Configure vim-commentary plugin
+filetype plugin indent on
+
+" Remaps:
+" n nore map (normal mode, no recursive execution, map to key this command)
+let mapleader = " "
+" Project View - open file explorer
+nnoremap <leader>pv :Vex<CR>
+" Change VimRC - Open VimRC for editing in a vertically split window
+nnoremap <leader>cv :sp $MYVIMRC<CR>
+" Source VimRC - source vim configuration file
+nnoremap <leader>sv :so ~/.vimrc<CR>
+" Project - Open fzf for git tree of current project
+nnoremap <leader>pg :GFiles<CR>
+" Project Files - Open fzf when not in git project
+nnoremap <leader>pf :Files<CR>
+" Next - In quickfix list
+nnoremap <C-j> cnext<C>
+" Previous - in quickfix list
+nnoremap <C-k> cprev<CR>
+" Yank into + register (system clipboard)
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+" Delete selected paragraph into void register and paste
+" this avoids copying the text you wanted to paste over
+vnoremap <leader>p "_dP
+" Yank entire file into system clipboard
+nnoremap <leader>Y gg"+yG
+" Move selected block of code up and down, respecting indenting
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+" Use <C-L> to clear searches (no need to type :nohlsearch)
+nnoremap <silent> <C-L> :nohlsearch<Bar>diffupdate<CR><C-L>
+
