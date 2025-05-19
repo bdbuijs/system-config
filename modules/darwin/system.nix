@@ -1,12 +1,13 @@
 { ... }: {
   system = {
     stateVersion = 1;
-    activationScripts.postUserActivation.text = ''
-      # Should remove the need to login again to apply settings
-      /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-    '';
-    keyboard.enableKeyMapping = true;
     primaryUser = "bram";
+    system.activationScripts.postActivation.text = lib.mkIf (primaryUser != null) ''
+      # Ensure this runs only if a primaryUser is defined
+      echo "Applying user-specific settings for ${primaryUser}..."
+      sudo -u "${primaryUser}" /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+      echo "Finished applying user-specific settings."'';
+    keyboard.enableKeyMapping = true;
     defaults = {
       CustomUserPreferences = {
         NSGlobalDomain.WebKitDeveloperExtras = true;
