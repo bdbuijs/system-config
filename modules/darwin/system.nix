@@ -2,8 +2,7 @@
   system = {
     stateVersion = 1;
     primaryUser = "bram";
-    system.activationScripts.postActivation.text = lib.mkIf (primaryUser != null) ''
-      # Ensure this runs only if a primaryUser is defined
+    system.activationScripts.postActivation.text = ''
       echo "Applying user-specific settings for ${primaryUser}..."
       sudo -u "${primaryUser}" /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
       echo "Finished applying user-specific settings."'';
