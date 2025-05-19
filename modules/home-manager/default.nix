@@ -12,9 +12,6 @@
     home-manager.enable = true;
     alacritty = {
       enable = true;
-      settings.font.normal.family = "JetBrainsMono Nerd Font";
-      settings.window.opacity = 0.85;
-      settings.window.padding.x = 5;
     };
     eza.enable = true;
     git = {
@@ -28,12 +25,10 @@
     };
     kitty = {
       enable = true;
-      extraConfig = lib.fileContents ./kittyconf;
     };
     neovim =
       {
         enable = true;
-        extraConfig = lib.fileContents ./vimrc;
         plugins = with pkgs.vimPlugins; [
           nvim-treesitter.withAllGrammars
         ];
