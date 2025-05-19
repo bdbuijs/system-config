@@ -6,6 +6,7 @@
       /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     '';
     keyboard.enableKeyMapping = true;
+    primaryUser = "bram";
     defaults = {
       CustomUserPreferences = {
         NSGlobalDomain.WebKitDeveloperExtras = true;
