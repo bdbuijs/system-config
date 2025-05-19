@@ -1,10 +1,14 @@
-{ ... }: {
+{ ... }:
+let
+  username = "bram";
+in
+{
   system = {
     stateVersion = 1;
-    primaryUser = "bram";
-    system.activationScripts.postActivation.text = ''
-      echo "Applying user-specific settings for ${primaryUser}..."
-      sudo -u "${primaryUser}" /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    primaryUser = username;
+    activationScripts.postActivation.text = ''
+      echo "Applying user-specific settings for ${username}..."
+      sudo -u "${username}" /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
       echo "Finished applying user-specific settings."'';
     keyboard.enableKeyMapping = true;
     defaults = {
