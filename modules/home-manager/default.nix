@@ -48,7 +48,7 @@
       syntaxHighlighting.enable = true;
       shellAliases = {
         ls = "ls --color=auto -F";
-        nixswitch = "darwin-rebuild switch --flake ~/src/system-config/.#";
+        nixswitch = "sudo darwin-rebuild switch --flake ~/src/system-config/.#";
         nixup = ''
           pushd ~/src/system-config
           nix flake update
